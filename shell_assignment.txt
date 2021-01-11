@@ -1,0 +1,115 @@
+1.1 Command
+
+> Get-ChildItem: -
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+da---l         11-Jan-21  11:11 AM                shell_magic
+
+It shows both the time and the date when I first "edit" in the folder. I assumed that "Mode" is showing the file type.
+Since it's a folder, it is showing da---1. 
+
+Get-ChildItem some_folder: - 
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a---l         11-Jan-21  11:11 AM              0 shell_assignment.txt
+
+The length of the characters in the .txt file is shown in the length. The mode for this data is -a---1.
+It could mean that -a---1 is defined for .txt file. 
+
+> Get-Alias ls: - 
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Alias           ls -> Get-ChildItem
+
+They have command type and Name. So Get-Alias is the command to get information the alias. 
+An alias following after that command is meant for the Powershell to show information about that particular alias.
+Just typing Get-Alias gives me a list of alias.   
+ls is regarded as an alias for Get-ChildItem. 
+
+1.2 Getting Some Help
+
+> Get-Help Remove-Item: - 
+
+It shows only partial help. There are aliases stated.  
+After updating help, it becomes more detailed with a description which explains how it works. 
+There is a remark for further explanation on the Remove-Item, including get-help Remove-Item -detailed. 
+
+> Get-Help Remove-Item - detailed: - 
+
+Examples for how to use the Remove-Item in a directory is stated, along with more specification on its syntax. 
+
+Using 
+> Get-ChildItem some_folder* -Include * .txt 
+returns the file with a .txt file. 
+
+Using 
+> ls *.txt -Recurse -Force 
+give me the files with .txt file. It does not show the folder anymore. 
+I use 
+> ls -Recurse -Force 
+before and it listed down both the folders and the files in them. 
+
+2.1 Looking around
+
+My current working directory is:-
+> C:\Users\eaind\OneDrive\Documents\Lab courses\Week2\shell_magic
+I do not see any colors. Maybe it is due to the fact that all of them are folders that they are displaying the same colors. 
+
+The working directory moved a folder back when using sl.. :-
+> C:\Users\eaind\OneDrive\Documents\Lab courses\Week2
+
+I used the same command sl. I type in the name of the folder to specify it. 
+> C:\Users\eaind\OneDrive\Documents\Lab courses> sl Week2\shell_magic
+
+3.1 Creating an empty file
+
+Using
+> ni hello world
+gives me error. It is said that there is no argument that accepts world. So it probably is better to name it hello_world. 
+It worked afterwards.
+
+3.2 Making directories
+
+The command used:
+> ni -ItemType directory
+Then the name of the folder. 
+
+3.3 Moving and renaming files
+
+It does not work because there is a file with the same name. 
+While renaming the item, I use 
+> rni hello_world.bfe
+Then set the new name. 
+
+> mi hello_world.txt hello_world
+The specification of the file name, then the destination that I wanted to move it to have to be specified. 
+
+I set the directory to hello_world. Then use:
+> mi hello_world.txt ..
+> mi ..\hello_world.txt .
+
+3.4 Copying files
+> cp ..\hello_world.txt .
+> rni .\hello_world.txt
+
+3.5 Removing files and directories
+
+> rm hello_world.txt
+> rm hello_world\world_hello.txt
+
+That it is an NTFS junction point. 
+> rm hello_world -Force
+
+4.1 Displaying file contents
+
+Nothing could be seen because there is nothing in the content. 
+
+
+
+
+
+
+
