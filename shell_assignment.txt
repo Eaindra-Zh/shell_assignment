@@ -116,7 +116,7 @@ Command: echo "New lines" >> file.txt
 
 > sl ..
 > sl home directory
-Command: ls -name >home_contents.list
+Command: ls -recurse -name >home_contents.list
 > mi home_contents.list ..\Week2\shell_magic
 
 When using gc on the whole content list, everything comes out which is inconvenient. 
@@ -161,8 +161,36 @@ helloworld.txt:2:world hello
 
 5.3 Daisy-Chaining the Commands you've learned
 
-Commands
+Commands:
 sls "hello" helloworld.txt
 
 gc .\helloworld.txt | sls "world" |measure-object | oh -p
+
+6.2 Unpacking Archives
+
+Command: tar.exe -xf .\aup.tar.gz
+
+6.3 Exploring your data
+
+Command: ls -Filter * .\aup\
+
+Command: \aup\cohort1\s003f\s003f.aup	
+
+Command: ls .\s003f\s003f.aup |oh -p
+
+Command: ls aup -recurse -name > aup.list
+Command: gc aup.list | sls .aup |measure-object
+There are 964 .aup files in the aup folder. 
+
+6.4 Using regular expression to grep/sls like a Ninja
+
+Command: ls -Filter * .\aup\cohort3 | sls .aup| measure-object
+There are 320 .aup files in the cohort 3 folder. 
+
+Command: ls -Filter * .\aup\cohort1 | ls -recurse -name| sls .aup| measure-object
+There are 318 .aup files in the cohort 1 folder.
+
+Command: ls -Filter * .\aup\cohort2 | ls -recurse -name| sls .aup| sls "ssc"| measure-object
+There are 86 .aup files for ssc students in the cohort 2 folder. 
+
 
