@@ -124,3 +124,45 @@ Using
 gc home_content.list | oh -p 
 is much more compact. 
 
+5.1 Pipe Symbol
+
+> gc file.txt|measure-object
+
+First, they tried to get the content from the file; then it measures the content of it. It only shows the number of lines in the text though. 
+Likewise with |oh -p. They first get to read the contents in the list. 
+Then by using the second command for seeing less, the page shows less than when using gc. 
+
+> gc .\home_content.list|measure-object
+There are 17553 files. 
+
+5.2 Patterns. 
+
+ni helloworld.txt
+echo "Hello world" > .\helloworld.txt
+echo "world hello" >> .\helloworld.txt
+
+sls "world" .\helloworld.txt
+Result: 
+helloworld.txt:1:Hello world
+helloworld.txt:2:world hello
+It specifies the files at which it found the words as well.
+
+sls "hello"
+Then specify at which paths I want to look the word into: - 
+cmdlet Select-String at command pipeline position 1
+Supply values for the following parameters:
+Path[0]: worldhello.txt
+Path[1]: helloworld.txt
+
+Result:
+worldhello.txt:1:world hello
+helloworld.txt:1:Hello world
+helloworld.txt:2:world hello
+
+5.3 Daisy-Chaining the Commands you've learned
+
+Commands
+sls "hello" helloworld.txt
+
+gc .\helloworld.txt | sls "world" |measure-object | oh -p
+
