@@ -51,3 +51,15 @@ give me the files with .txt file. It does not show the folder anymore.
 I use 
 > ls -Recurse -Force 
 before and it listed down both the folders and the files in them. 
+
+2.1 Looking around
+
+My current working directory is:-
+> C:\Users\eaind\OneDrive\Documents\Lab courses\Week2\shell_magic
+I do not see any colors. Maybe it is due to the fact that all of them are folders that they are displaying the same colors. 
+
+The working directory moved a folder back when using sl.. :-
+> C:\Users\eaind\OneDrive\Documents\Lab courses\Week2
+
+I used the same command sl. I type in the name of the folder to specify it. 
+> C:\Users\eaind\OneDrive\Documents\Lab courses> sl Week2\shell_magic
