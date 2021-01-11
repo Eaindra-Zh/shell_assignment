@@ -114,6 +114,18 @@ Command: echo "New lines" >> file.txt
 
 4.3 Prevent cluttering your terminal
 
+> sl ..
+> sl home directory
+Command: ls -name >home_contents.list
+> mi home_contents.list ..\Week2\shell_magic
+
+When using gc on the whole content list, everything comes out which is inconvenient. 
+Using 
+gc home_content.list | oh -p 
+is much more compact. 
+
+
+
 
 
 
